@@ -2,8 +2,8 @@
     display: flex;
     gap: 8px;
     justify-content: center;
-    margin-top: 36px;
-    margin-bottom: 32px;
+    padding-top: 36px;
+    padding-bottom: 32px;
 }
 
 .form input {
@@ -47,25 +47,83 @@
     background: #6C8CFF;
 }
 
+.loader {
+    margin: 0 auto;
+    width: 96px;
+    box-sizing: content-box;
+    height: 48px;
+    background: #FFF;
+    border-color: #4E75FF;
+    border-style: solid;
+    border-width: 2px 2px 50px 2px;
+    border-radius: 100%;
+    position: relative;
+    animation: 3s yinYang linear infinite;
+}
+
+.loader:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #FFF;
+    border: 18px solid #4E75FF;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    box-sizing: content-box;
+}
+
+.loader:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #4E75FF;
+    border: 18px solid #FFF;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    box-sizing: content-box;
+}
+
+@keyframes yinYang {
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
 .gallery {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 24px;
+    padding-bottom: 36px;
 }
 
 .gallery-item {
-    max-width: 360px;
-    border: 1px solid #808080;
+    outline: 1px solid #808080;
     width: calc((100% - 24px * 2) / 3);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .imgblock {
-    object-fit: contain;
-}
-
-.gallery-image {
-    min-height: 200px;
+    max-width: 360px;
+    height: 200px;
+    overflow: hidden;
     object-fit: cover;
 }
 
